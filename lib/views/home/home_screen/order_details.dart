@@ -3,6 +3,9 @@ import 'package:store_app/configs/constants/app_constants.dart';
 import 'package:store_app/configs/styles/app_colors.dart';
 import 'package:store_app/configs/styles/custom_text_style.dart';
 import 'package:store_app/widgets/add_item_widget.dart';
+import 'package:store_app/widgets/custom_inkwell.dart';
+import 'package:get/get.dart';
+
 
 class OrderDetails extends StatelessWidget {
 
@@ -21,6 +24,7 @@ class OrderDetails extends StatelessWidget {
             ColorfulAppBar(),
             Expanded(
               child: Container(
+                padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(30))
@@ -29,7 +33,7 @@ class OrderDetails extends StatelessWidget {
                   shrinkWrap: true,
                   children: [
 
-                    SizedBox(height: 20,),
+                    // SizedBox(height: 20,),
 
                     Container(
                       margin: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
@@ -191,7 +195,11 @@ class _ColorfulAppBarState extends State<ColorfulAppBar> {
       padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: 20),
       child: Row(
         children: [
-          Icon(Icons.arrow_back_ios,color: Colors.white,),
+          CustomInkWell(
+              onTap: (){
+                Get.back();
+              },
+              child: Icon(Icons.arrow_back_ios,color: Colors.white,)),
           Spacer(),
           Text("Order Detail",style: CustomTextStyle.appBarTextStyle(fontFamily: "PoppinsRegular",color: Colors.white),),
           Spacer(),

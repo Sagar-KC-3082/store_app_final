@@ -1,7 +1,8 @@
 import 'package:store_app/configs/styles/app_colors.dart';
 import 'package:store_app/configs/styles/custom_text_style.dart';
-import 'package:store_app/controllers/home/drawer_controller.dart';
-import 'package:store_app/views/home/home_screen/current_order.dart';
+import 'package:store_app/views/account/account_main_screen.dart';
+import 'package:store_app/views/home/home_screen/wallet.dart';
+import 'package:store_app/views/notification/notification_main_screen.dart';
 import 'package:store_app/widgets/custom_inkwell.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -41,21 +42,25 @@ class CustomDrawer extends StatelessWidget {
 
           CustomInkWell(
               onTap: (){
-                // Get.to(CurrentOrderView());
+                Get.back();
                 },
               child: CustomRow(title: "Home",)
           ),
           CustomInkWell(
               onTap: (){
-                // Get.to(ParcelAndCourierBottomNavScreen());
+                Get.to(NotificationScreen());
                   },
               child: CustomRow(title: "Notification",)
           ),
           CustomInkWell(
               // onTap: (){Get.to(SnappyClassifiedNotificationView());},
               child: CustomRow(title: "History",)),
-          CustomRow(title: "Account",),
-          CustomRow(title: "Wallet",),
+          CustomInkWell(
+              onTap: (){Get.to(AccountMainScreen());},
+              child: CustomRow(title: "Account",)),
+          CustomInkWell(
+              onTap: (){Get.to(MyWalletScreen());},
+              child: CustomRow(title: "Wallet",)),
           CustomRow(title: "Financial Dashboard",)
 
 

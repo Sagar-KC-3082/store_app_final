@@ -7,7 +7,8 @@ class CustomTextAndTextFieldWidget extends StatelessWidget {
 
   final String text;
   final int maxLines;
-  CustomTextAndTextFieldWidget({this.text,this.maxLines});
+  final String hintText;
+  CustomTextAndTextFieldWidget({this.text,this.maxLines,this.hintText});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class CustomTextAndTextFieldWidget extends StatelessWidget {
         children: [
           Text("  $text",style: CustomTextStyle.smallBoldTextStyle1(),),
           SizedBox(height: 10,),
-          CustomTextField(borderRadius: BorderRadius.circular(AppConstants.borderRadius,),maxLines: maxLines?? 1,),
+          CustomTextField(borderRadius: BorderRadius.circular(AppConstants.borderRadius,),maxLines: maxLines?? 1,hintText: hintText?? "",),
         ],
       ),
     );

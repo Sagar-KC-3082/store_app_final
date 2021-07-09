@@ -35,6 +35,7 @@ class HomeScreenView extends StatelessWidget {
                   children: [
                     Row(
                       children: [
+                        SizedBox(width: 5,),
                         Expanded(child: OrderContainer(title: "Total Order",amount: "250",)),
                         Expanded(child: OrderContainer(title: "Total Earn",amount: "180\$",)),
                         Expanded(child: OrderContainer(title: "Total Review",amount: "104",)),
@@ -156,7 +157,7 @@ class CustomRow extends StatelessWidget {
             ]
         ),
         padding: EdgeInsets.symmetric(horizontal: 12,vertical: 20),
-        margin: EdgeInsets.only(right: 10,top: 10,bottom: 10),
+        margin: EdgeInsets.only(right: 10,top: 10,bottom: 10,left: 5),
         child: Row(
           children: [
               Expanded(child: Text(title,style: CustomTextStyle.smallBoldTextStyle1(),)),
