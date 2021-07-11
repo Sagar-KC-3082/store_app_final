@@ -30,7 +30,7 @@ class SignInView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
-                  Center(child: Image.asset("assets/images/splashImage.png",height: Get.height*0.3,width: Get.width*0.5,)),
+                  Expanded(child: Center(child: Image.asset("assets/images/splashImage.png",width: Get.width*0.5,fit: BoxFit.cover,))),
 
                   Text("Welcome back to Login",style: CustomTextStyle.boldTextStyle(),),
                   SizedBox(height: 30,),
@@ -62,7 +62,7 @@ class SignInView extends StatelessWidget {
                       Get.to(OtpScreen());
                     }
                   },),
-                  Spacer(),
+                  SizedBox(height: 20,),
 
                   Center(child: CustomInkWell(
                       onTap: (){Get.to(ForgotPasswordView());},
@@ -78,7 +78,7 @@ class SignInView extends StatelessWidget {
 
                     ],
                   ),
-                  SizedBox(height: 20,),
+
 
 
                 ],

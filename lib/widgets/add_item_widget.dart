@@ -2,6 +2,7 @@ import 'package:store_app/configs/styles/app_colors.dart';
 import 'package:store_app/configs/styles/custom_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:store_app/views/home/home_screen/booking_detail.dart';
 import 'package:store_app/views/home/home_screen/order_details.dart';
 import 'package:store_app/widgets/custom_inkwell.dart';
 
@@ -133,8 +134,9 @@ class AddItemWidget1 extends StatefulWidget {
   final String title2;
   final String price;
   final bool hideExtra;
+  final bool comingFromServices;
 
-  AddItemWidget1({this.title1,this.price,this.imageUrl,this.title2,this.hideExtra});
+  AddItemWidget1({this.title1,this.price,this.imageUrl,this.title2,this.hideExtra,this.comingFromServices});
 
 
   @override
@@ -149,7 +151,7 @@ class _AddItemWidget1State extends State<AddItemWidget1> {
   Widget build(BuildContext context) {
     return CustomInkWell(
       onTap: (){
-        Get.to(OrderDetails());
+        widget.comingFromServices == true ? Get.to(BookingDetail()) : Get.to(OrderDetails());
       },
       child: Container(
         padding: EdgeInsets.only(right: 5),

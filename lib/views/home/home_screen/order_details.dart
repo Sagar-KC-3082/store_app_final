@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:store_app/configs/constants/app_constants.dart';
 import 'package:store_app/configs/styles/app_colors.dart';
 import 'package:store_app/configs/styles/custom_text_style.dart';
+import 'package:store_app/views/payment/payment_received.dart';
+import 'package:store_app/widgets/accept_or_decline_widget.dart';
 import 'package:store_app/widgets/add_item_widget.dart';
 import 'package:store_app/widgets/custom_inkwell.dart';
 import 'package:get/get.dart';
@@ -33,15 +35,13 @@ class OrderDetails extends StatelessWidget {
                   shrinkWrap: true,
                   children: [
 
-                    // SizedBox(height: 20,),
-
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
+                      margin:EdgeInsets.symmetric(horizontal:5),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
                           color: Colors.white,
                           boxShadow: [
-                            BoxShadow(color: Colors.grey.withOpacity(0.2),blurRadius: 5,spreadRadius: 3,offset: Offset(3,3))
+                            BoxShadow(color: Colors.grey.withOpacity(0.1),blurRadius: 5,spreadRadius: 3,offset: Offset(3,3))
                           ]
                       ),
                       padding: EdgeInsets.all(15),
@@ -64,7 +64,7 @@ class OrderDetails extends StatelessWidget {
                     SizedBox(height: 20,),
 
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
+                      padding:EdgeInsets.symmetric(horizontal:5),
                       child: Row(
                         children: [
                           Column(
@@ -96,7 +96,7 @@ class OrderDetails extends StatelessWidget {
                     SizedBox(height: 20,),
 
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
+                      padding:EdgeInsets.symmetric(horizontal:5),
                       child: Text("Items",style: CustomTextStyle.boldMediumTextStyle(fontFamily: "PoppinsRegular"),),
                     ),
                     SizedBox(height: 10,),
@@ -106,10 +106,12 @@ class OrderDetails extends StatelessWidget {
                     AddItemWidget1(imageUrl: _itemList[0]["imageUrl"],title1: _itemList[0]["title1"],title2: _itemList[0]["title2"],price: _itemList[0]["price"],hideExtra: true,),
                     AddItemWidget1(imageUrl: _itemList[1]["imageUrl"],title1: _itemList[1]["title1"],title2: _itemList[1]["title2"],price: _itemList[1]["price"],hideExtra: true,),
 
+                    SizedBox(height: 20,),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
+                      padding:EdgeInsets.symmetric(horizontal:5),
                       child: Text("Customer",style: CustomTextStyle.boldMediumTextStyle(fontFamily: "PoppinsRegular"),),
                     ),
+                    SizedBox(height: 20,),
 
                     Container(
                       decoration: BoxDecoration(
@@ -119,7 +121,7 @@ class OrderDetails extends StatelessWidget {
                             BoxShadow(color: Colors.grey.withOpacity(0.2),blurRadius: 5,spreadRadius: 3,offset: Offset(3,3))
                           ]
                       ),
-                      margin:EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
+                      margin:EdgeInsets.symmetric(horizontal:5),
                       padding: EdgeInsets.symmetric(vertical: 20,horizontal: 12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -145,13 +147,13 @@ class OrderDetails extends StatelessWidget {
                     SizedBox(height:20,),
 
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
+                      padding:EdgeInsets.symmetric(horizontal:5),
                       child: Column(
                         children: [
                           CustomRow(title1: "Service Fee",title2: "\$128",),
-                          CustomRow(title1: "Late Night Charge",title2: "\$128",),
-                          CustomRow(title1: "Moving Cart ",title2: "\$128",title3: "Additional Services",),
-                          CustomRow(title1: "Discount",title2: "\$128",title3: "Promo Code: 554dffd",),
+                          CustomRow(title1: "Late Night Charge",title2: "\$38",),
+                          CustomRow(title1: "Moving Cart ",title2: "\$56",title3: "Additional Services",),
+                          CustomRow(title1: "Discount",title2: "\$32",title3: "Promo Code: 554dffd",),
 
                           SizedBox(height: 5,),
                           Divider(),
@@ -165,7 +167,16 @@ class OrderDetails extends StatelessWidget {
                           ),
                         ],
                       ),
-                    )
+                    ),
+
+                    SizedBox(height:10,),
+                    CustomInkWell(
+                        onTap: (){
+                          Get.to(PaymentReceivedScreen());
+                        },
+                        child: AddOrRejectWidget()),
+                    SizedBox(height:10,),
+
 
                   ],
                 ),

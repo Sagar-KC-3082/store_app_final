@@ -6,9 +6,12 @@ import 'package:store_app/configs/styles/custom_text_style.dart';
 import 'package:store_app/views/home/add_user_details/add_item.dart';
 import 'package:store_app/widgets/custom_appbar.dart';
 import 'package:store_app/widgets/full_width_button.dart';
+import 'add_bio.dart';
 
 
 class AddPhotoView extends StatelessWidget {
+  final bool comingFromServices;
+  AddPhotoView({this.comingFromServices});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +21,7 @@ class AddPhotoView extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
           child: Column(
             children: [
-              CustomAppBarRowWithCustomIcon(title: "Upload Business Documents",),
+              CustomAppBarRowWithCustomIcon(title: "Upload Profile Pic",),
               SizedBox(height: 40,),
 
              Stack(
@@ -59,7 +62,7 @@ class AddPhotoView extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 title: "Continue",
                 onTap: (){
-                  Get.to(AddItemView());
+                 comingFromServices == true?  Get.to(ServicesAddBio()) :  Get.to(AddItemView());
                 },
               )
             ],

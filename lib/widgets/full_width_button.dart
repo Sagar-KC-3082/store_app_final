@@ -30,7 +30,7 @@ class FullWidthButton extends StatelessWidget {
         ),
         padding: padding ?? EdgeInsets.symmetric(vertical: 22),
         margin: maring ?? EdgeInsets.symmetric(horizontal: 0,vertical: 10),
-        child: Center(child: Text(title,style: CustomTextStyle.boldMediumTextStyle(color:border == null ? Colors.white : Colors.grey,fontFamily: "PoppinsBold"),),),
+        child: Center(child: Text(title,style: CustomTextStyle.boldMediumTextStyle(color:border == null ? Colors.white : Colors.grey,fontFamily: "PoppinsRegular"),),),
       ),
     );
   }

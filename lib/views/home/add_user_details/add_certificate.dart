@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 import 'package:store_app/configs/constants/app_constants.dart';
 import 'package:store_app/configs/styles/app_colors.dart';
 import 'package:store_app/configs/styles/custom_text_style.dart';
-import 'package:store_app/views/home/add_user_details/add_location.dart';
 import 'package:store_app/views/home/add_user_details/add_photo.dart';
 import 'package:store_app/widgets/custom_appbar.dart';
 import 'package:store_app/widgets/full_width_button.dart';
 
 
-class AddDocumentView extends StatelessWidget {
+
+class AddCertificateScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +22,7 @@ class AddDocumentView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomAppBarRowWithCustomIcon(title: "Upload Business Documents",),
+                  CustomAppBarRowWithCustomIcon(title: "Upload Certificate",),
                   SizedBox(height: 30,),
 
                   DottedBorder(
@@ -37,7 +37,7 @@ class AddDocumentView extends StatelessWidget {
                         children: [
                           Image.asset("assets/images/docs.png"),
                           SizedBox(height: 10,),
-                          Text("Upload Document",style: CustomTextStyle.smallBoldTextStyle1(),),
+                          Text("Upload Certificate",style: CustomTextStyle.smallBoldTextStyle1(),),
                         ],
                       ),
                     ),
@@ -48,7 +48,7 @@ class AddDocumentView extends StatelessWidget {
                     color: AppColors.primaryDarkOrange,
                     title: "Continue",
                     onTap: (){
-                      Get.to(AddPhotoView());
+                      Get.to(AddPhotoView(comingFromServices: true,));
                     },
                   )
 

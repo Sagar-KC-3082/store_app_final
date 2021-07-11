@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 import 'package:store_app/configs/constants/app_constants.dart';
 import 'package:store_app/configs/styles/app_colors.dart';
 import 'package:store_app/configs/styles/custom_text_style.dart';
+import 'package:store_app/controllers/home/home_controller.dart';
 import 'package:store_app/views/home/snappy_food/snappy_food_home_screen.dart';
-import 'package:store_app/views/home/snappy_services/home_screen_view.dart';
+import 'package:store_app/views/home/snappy_services/snappy_services_home_screen.dart';
 import 'package:store_app/views/home/snappy_store/snappy_store_home_screen.dart';
 import 'package:store_app/widgets/custom_appbar.dart';
 import 'package:store_app/widgets/custom_inkwell.dart';
@@ -12,6 +13,9 @@ import 'package:store_app/widgets/full_width_button.dart';
 
 
 class UserTypeSelectionView extends StatelessWidget {
+
+  HomeController _homeController = Get.put(HomeController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +79,7 @@ class UserTypeSelectionView extends StatelessWidget {
                       flex: 2,
                       child: CustomInkWell(
                         onTap: (){
+                          _homeController.userType.value ="Services";
                           Get.to(SnappyServicesHomeScreen());
                         },
                         child: Column(
