@@ -81,7 +81,7 @@ class OtpScreen extends StatelessWidget {
                     title: "Verify",
                     onTap: (){
                         if(_globalKey1.currentState.validate()){
-                          Get.to(UserTypeSelectionView());
+                          Navigator.push(context, MaterialPageRoute(builder: (context){return UserTypeSelectionView();}));
                         }
                     },
                   )

@@ -13,9 +13,8 @@ class ProfileScreen extends StatelessWidget {
 
   final ProfileController _profileController = Get.put(ProfileController());
 
-  Widget userInfo(){
-    return
-      Row(
+  Widget userInfo(BuildContext context){
+    return Row(
         children: [
           CircleAvatar(
             radius: 35,
@@ -38,8 +37,8 @@ class ProfileScreen extends StatelessWidget {
           SizedBox(width: 20,),
           CustomInkWell(
               onTap: (){
-                Get.to(EditProfile(title: "Name",fieldInfo: ["First Name","Last Name"],));
-              },
+                Navigator.push(context, MaterialPageRoute(builder: (context){return EditProfile(title: "Name",fieldInfo: ["First Name","Last Name"],);}));
+                },
               child: Text("Edit",style: CustomTextStyle.boldMediumTextStyle(color: AppColors.primaryDarkOrange,fontFamily: "PoppinsRegular"),))
         ],
       );
@@ -55,10 +54,10 @@ class ProfileScreen extends StatelessWidget {
             child: Obx((){
               return Column(
                 children: [
-                  CustomAppBarRowWithCustomIconWithNoSpacing(title: "Profile"),
+                  CustomAppBarRowWithCustomIconWithNoSpacing(title: "Profile",hideBackButton: true,),
                   SizedBox(height:30,),
 
-                  userInfo(),
+                  userInfo(context),
                   SizedBox(height:30,),
 
                   CustomImageTextRowWidget(title: "Gender",title1:_profileController.gender.value,imageUrl: "assets/images/gender.png",fieldInfo: ["Choose Gender"],),
@@ -102,7 +101,7 @@ class _CustomImageTextRowWidgetState extends State<CustomImageTextRowWidget> {
           _isTapped = !_isTapped;
         });
         await Future.delayed(Duration(milliseconds: 200),(){
-          Get.to(EditProfile(title: widget.title,fieldInfo: widget.fieldInfo,));
+          Navigator.push(context, MaterialPageRoute(builder: (context){return EditProfile(title: widget.title,fieldInfo: widget.fieldInfo,);}));
           setState(() {
             _isTapped = !_isTapped;
           });

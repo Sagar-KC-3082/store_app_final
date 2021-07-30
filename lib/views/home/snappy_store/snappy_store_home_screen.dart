@@ -42,8 +42,8 @@ class SnappyStoreHomeScreen extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 title: "Continue",
                 onTap: (){
-                  Get.to(AddInfoView());
-                },
+                  Navigator.push(context, MaterialPageRoute(builder: (context){return AddInfoView();}));
+                  },
               )
             ],
           ),

@@ -48,8 +48,8 @@ class AddDocumentView extends StatelessWidget {
                     color: AppColors.primaryDarkOrange,
                     title: "Continue",
                     onTap: (){
-                      Get.to(AddPhotoView());
-                    },
+                      Navigator.push(context, MaterialPageRoute(builder: (context){return AddPhotoView();}));
+                      },
                   )
 
                 ],

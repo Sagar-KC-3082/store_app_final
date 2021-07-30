@@ -4,6 +4,8 @@ import 'package:store_app/configs/constants/app_constants.dart';
 import 'package:store_app/configs/styles/app_colors.dart';
 import 'package:store_app/configs/styles/custom_text_style.dart';
 import 'package:store_app/controllers/home/home_controller.dart';
+import 'package:store_app/views/bottom_nav/bottom_nav.dart';
+import 'package:store_app/views/bottom_nav/bottom_nav_bar_for_services.dart';
 import 'package:store_app/views/home/home_screen/home_screen.dart';
 import 'package:store_app/views/home/home_screen/home_screen_for_services.dart';
 import 'package:store_app/widgets/custom_inkwell.dart';
@@ -63,10 +65,12 @@ class PaymentReceivedScreen extends StatelessWidget {
               CustomInkWell(
                 onTap: (){
                   if(_homeController.userType.value == "Services"){
-                    Get.offAll(HomeScreenForServices());
+                    Get.offAll(BottomNavScreenForServices());
+                    // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreenForServices()), (Route<dynamic> route) => false);
                   }
                   else{
-                    Get.offAll(HomeScreenView());
+                    Get.offAll(BottomNavScreenForServices());
+                    // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreenView()), (Route<dynamic> route) => false);
                   }
                 },
                 child: FullWidthButton(
@@ -77,10 +81,12 @@ class PaymentReceivedScreen extends StatelessWidget {
               CustomInkWell(
                   onTap: (){
                     if(_homeController.userType.value == "Services"){
-                      Get.offAll(HomeScreenForServices());
+                      Get.offAll(BottomNavScreenForServices());
+                      // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreenForServices()), (Route<dynamic> route) => false);
                     }
                     else{
-                      Get.offAll(HomeScreenView());
+                      Get.offAll(BottomNavScreenForServices());
+                      // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => HomeScreenView()),(Route<dynamic> route) => false);
                     }
                   },
                   child: Text("Skip Rating",style: CustomTextStyle.boldMediumTextStyle(fontFamily: "PoppinsRegular"),))

@@ -35,7 +35,7 @@ class CustomerSupportScreen extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 title: "Save",
                 onTap: (){
-                  Get.back();
+                  Navigator.pop(context);
                 },
               )
             ],

@@ -60,8 +60,8 @@ class AddInfoView extends StatelessWidget {
                     color: AppColors.primaryDarkOrange,
                     title: "Continue",
                     onTap: (){
-                      Get.to(AddLocation());
-                    },
+                      Navigator.push(context, MaterialPageRoute(builder: (context){return AddLocation();}));
+                      },
                   )
 
               ],

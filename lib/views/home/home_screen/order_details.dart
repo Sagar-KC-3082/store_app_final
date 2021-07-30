@@ -101,10 +101,10 @@ class OrderDetails extends StatelessWidget {
                     ),
                     SizedBox(height: 10,),
 
-                    AddItemWidget1(imageUrl: _itemList[0]["imageUrl"],title1: _itemList[0]["title1"],title2: _itemList[0]["title2"],price: _itemList[0]["price"],hideExtra: true,),
-                    AddItemWidget1(imageUrl: _itemList[1]["imageUrl"],title1: _itemList[1]["title1"],title2: _itemList[1]["title2"],price: _itemList[1]["price"],hideExtra: true,),
-                    AddItemWidget1(imageUrl: _itemList[0]["imageUrl"],title1: _itemList[0]["title1"],title2: _itemList[0]["title2"],price: _itemList[0]["price"],hideExtra: true,),
-                    AddItemWidget1(imageUrl: _itemList[1]["imageUrl"],title1: _itemList[1]["title1"],title2: _itemList[1]["title2"],price: _itemList[1]["price"],hideExtra: true,),
+                    NonTappableAddItemWidget1(imageUrl: _itemList[0]["imageUrl"],title1: _itemList[0]["title1"],title2: _itemList[0]["title2"],price: _itemList[0]["price"],hideExtra: true,),
+                    NonTappableAddItemWidget1(imageUrl: _itemList[1]["imageUrl"],title1: _itemList[1]["title1"],title2: _itemList[1]["title2"],price: _itemList[1]["price"],hideExtra: true,),
+                    NonTappableAddItemWidget1(imageUrl: _itemList[0]["imageUrl"],title1: _itemList[0]["title1"],title2: _itemList[0]["title2"],price: _itemList[0]["price"],hideExtra: true,),
+                    NonTappableAddItemWidget1(imageUrl: _itemList[1]["imageUrl"],title1: _itemList[1]["title1"],title2: _itemList[1]["title2"],price: _itemList[1]["price"],hideExtra: true,),
 
                     SizedBox(height: 20,),
                     Padding(
@@ -172,8 +172,8 @@ class OrderDetails extends StatelessWidget {
                     SizedBox(height:10,),
                     CustomInkWell(
                         onTap: (){
-                          Get.to(PaymentReceivedScreen());
-                        },
+                          Navigator.push(context, MaterialPageRoute(builder: (context){return PaymentReceivedScreen();}));
+                          },
                         child: AddOrRejectWidget()),
                     SizedBox(height:10,),
 
@@ -208,7 +208,7 @@ class _ColorfulAppBarState extends State<ColorfulAppBar> {
         children: [
           CustomInkWell(
               onTap: (){
-                Get.back();
+                Navigator.pop(context);
               },
               child: Icon(Icons.arrow_back_ios,color: Colors.white,)),
           Spacer(),

@@ -125,8 +125,8 @@ class AddCreditCard extends StatelessWidget {
                       title: "Add Card",
                       onTap: (){
                         _key5.currentState.validate();
-                        Get.to(PaymentSuccessScreen());
-                      },
+                        Navigator.push(context, MaterialPageRoute(builder: (context){return PaymentSuccessScreen();}));
+                        },
                     )
 
                   ],

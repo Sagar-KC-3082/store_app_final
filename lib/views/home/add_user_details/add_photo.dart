@@ -62,8 +62,10 @@ class AddPhotoView extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 title: "Continue",
                 onTap: (){
-                 comingFromServices == true?  Get.to(ServicesAddBio()) :  Get.to(AddItemView());
-                },
+                 comingFromServices == true?
+                 Navigator.push(context, MaterialPageRoute(builder: (context){return ServicesAddBio();})):
+                 Navigator.push(context, MaterialPageRoute(builder: (context){return AddItemView();}));
+                 },
               )
             ],
           ),

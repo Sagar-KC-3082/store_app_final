@@ -147,7 +147,9 @@ class CustomRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomInkWell(
-      onTap: (){Get.to(CurrentOrderView(title: title,isCurrentOrder:isCurrentOrder));},
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context){return CurrentOrderView(title: title,isCurrentOrder:isCurrentOrder);}));
+        },
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),

@@ -154,7 +154,9 @@ class BookingDetail extends StatelessWidget {
 
                       SizedBox(height:10,),
                       CustomInkWell(
-                          onTap: (){Get.to(PaymentReceivedScreen());},
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context){return PaymentReceivedScreen();}));
+                            },
                           child: AddOrRejectWidget()),
                       SizedBox(height:10,),
 
@@ -188,7 +190,7 @@ class _ColorfulAppBarState extends State<ColorfulAppBar> {
         children: [
           CustomInkWell(
               onTap: (){
-                Get.back();
+                Navigator.pop(context);
               },
               child: Icon(Icons.arrow_back_ios,color: Colors.white,)),
           Spacer(),

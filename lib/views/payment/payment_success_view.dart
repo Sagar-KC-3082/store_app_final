@@ -1,6 +1,8 @@
 import 'package:store_app/configs/constants/app_constants.dart';
 import 'package:store_app/configs/styles/app_colors.dart';
 import 'package:store_app/configs/styles/custom_text_style.dart';
+import 'package:store_app/views/bottom_nav/bottom_nav.dart';
+import 'package:store_app/views/bottom_nav/bottom_nav_bar_for_services.dart';
 import 'package:store_app/views/home/home_screen/home_screen.dart';
 import 'package:store_app/views/home/home_screen/home_screen_for_services.dart';
 import 'package:store_app/widgets/full_width_button.dart';
@@ -41,7 +43,9 @@ class PaymentSuccessScreen extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 title: "Back To Login",
                 onTap: (){
-                  _homeController.userType.value == "Services" ? Get.to(HomeScreenForServices()) : Get.to(HomeScreenView());
+                  _homeController.userType.value == "Services" ?
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){return BottomNavScreenForServices();}),(Route<dynamic> route) => false):
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context){return BottomNavScreen();}),(Route<dynamic> route) => false);
                   },
               ),
 

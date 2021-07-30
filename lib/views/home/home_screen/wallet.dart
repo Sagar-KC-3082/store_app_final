@@ -31,7 +31,7 @@ class MyWalletScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomInkWell(
-                      onTap: (){Get.back();},
+                      onTap: (){Navigator.pop(context);},
                       child: Icon(Icons.arrow_back_ios,color: Colors.white,size: 20,),
                     ),
                     Expanded(

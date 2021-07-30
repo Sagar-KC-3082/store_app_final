@@ -35,110 +35,105 @@ class EditProfile extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
           child: Form(
             key: _key6,
-            child: SingleChildScrollView(
-              child: Container(
-                height: Get.height*0.93,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomAppBarRowWithCustomIconWithNoSpacing(title: title),
+                title == 'Name' ? SizedBox(height:20,) : SizedBox(height:40,),
+
+                title == "Name" ?  Stack(
                   children: [
-                    CustomAppBarRowWithCustomIconWithNoSpacing(title: title),
-                    title == 'Name' ? SizedBox(height:20,) : SizedBox(height:40,),
-
-                    title == "Name" ?  Stack(
-                      children: [
-                        Container(
-                          height: Get.height*0.25,
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 20),
-                            child: CircleAvatar(
-                              radius: Get.width*0.4,
-                              backgroundImage: AssetImage("assets/images/user4.jpg"),
-                            ),
-                          ),
+                    Container(
+                      height: Get.height*0.25,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 20),
+                        child: CircleAvatar(
+                          radius: Get.width*0.4,
+                          backgroundImage: AssetImage("assets/images/user4.jpg"),
                         ),
-                        Positioned(
-                            bottom:5,
-                            left: Get.width*0.37,
-                            child:Container(
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.black
-                              ),
-                              padding: EdgeInsets.all(10),
-                              child:  Icon(Icons.camera_alt,color: Colors.white,),
-                            )
-                        )
-                      ],
-                    ): Container(),
-
-                    Expanded(
-                        child: ListView.builder(
-                            itemCount: fieldInfo.length,
-                            itemBuilder: (context,index){
-                              return Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(fieldInfo[index],style: CustomTextStyle.smallBoldTextStyle1(),),
-                                  SizedBox(height: 10,),
-                                  fieldInfo[index] == "Choose Gender" ?
-
-                                  DropdownButtonFormField(
-                                    hint:Text(_profileController.gender.value),
-                                    decoration:InputDecoration(
-                                        border: InputBorder.none
-                                    ),
-                                    onChanged: (value){
-                                      _profileController.gender.value  = value;
-                                    },
-                                    items: [
-                                      DropdownMenuItem(child: Text("Male"),value: "Male",),
-                                      DropdownMenuItem(child: Text("Female"),value: "Female",),
-                                      DropdownMenuItem(child: Text("Others"),value: "Others",),
-                                    ],
-                                  ):
-
-                                  CustomTextField(
-                                    obSecureText: fieldInfo[0]=="Current Password" ? true : false,
-                                    controller: fieldInfo[index] == "Change Email" ? _emailController : fieldInfo[index] == "Change Number" ? _phoneController : fieldInfo[index] == "First Name" ? _firstNameController : fieldInfo[index] == "Current Password" ? _currentPasswordController : fieldInfo[index] == "New Password" ? _newPasswordController1 : fieldInfo[index] == "New Password Again" ? _newPasswordController2 : _lastNameController,
-                                    hintText: fieldInfo[index] == "Change Email" ? _profileController.email.value : fieldInfo[index] == "Change Number" ? _profileController.phoneNumber.value : fieldInfo[index] == "First Name" ? _profileController.userFirstName.value : fieldInfo[0]=="Current Password" ? "" : _profileController.userLastName.value,
-                                    borderRadius: BorderRadius.circular(5),
-                                    validator: (value){
-                                      if(value.length==0){
-                                        return "This Field cannot be empty";
-                                      }
-                                      if(fieldInfo[index]=="New Password Again" && _newPasswordController1.text != _newPasswordController2.text){
-                                        return "Password didnot match";
-                                      }
-                                    },
-                                  ),
-                                  SizedBox(height: 10,),
-                                  fieldInfo[0]=="Change Email" ? Text("We will send verification to your New Email",style: CustomTextStyle.ultraSmallTextStyle(color: Colors.grey),):Container()
-
-                                ],
-                              );
-                            }
-                        )
+                      ),
                     ),
-
-                    FullWidthButton(
-                      color: AppColors.primaryDarkOrange,
-                      title: "Save",
-                      borderRadius: BorderRadius.circular(8),
-                      onTap: (){
-                        if(_key6.currentState.validate()){
-                          fieldInfo[0] == "Change Email" ? _profileController.email.value = _emailController.text :  fieldInfo[0] == "Change Number" ? _profileController.phoneNumber.value = _phoneController.text : print("");
-                          if(fieldInfo[0]=="First Name"){
-                            _profileController.userFirstName.value = _firstNameController.text;
-                            _profileController.userLastName.value = _lastNameController.text;
-                          }
-                          Get.back();
-                        }
-                      },
+                    Positioned(
+                        bottom:5,
+                        left: Get.width*0.37,
+                        child:Container(
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.black
+                          ),
+                          padding: EdgeInsets.all(10),
+                          child:  Icon(Icons.camera_alt,color: Colors.white,),
+                        )
                     )
-
                   ],
+                ): Container(),
+
+                Expanded(
+                    child: ListView.builder(
+                        itemCount: fieldInfo.length,
+                        itemBuilder: (context,index){
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(fieldInfo[index],style: CustomTextStyle.smallBoldTextStyle1(),),
+                              SizedBox(height: 10,),
+                              fieldInfo[index] == "Choose Gender" ?
+
+                              DropdownButtonFormField(
+                                hint:Text(_profileController.gender.value),
+                                decoration:InputDecoration(
+                                    border: InputBorder.none
+                                ),
+                                onChanged: (value){
+                                  _profileController.gender.value  = value;
+                                },
+                                items: [
+                                  DropdownMenuItem(child: Text("Male"),value: "Male",),
+                                  DropdownMenuItem(child: Text("Female"),value: "Female",),
+                                  DropdownMenuItem(child: Text("Others"),value: "Others",),
+                                ],
+                              ):
+
+                              CustomTextField(
+                                obSecureText: fieldInfo[0]=="Current Password" ? true : false,
+                                controller: fieldInfo[index] == "Change Email" ? _emailController : fieldInfo[index] == "Change Number" ? _phoneController : fieldInfo[index] == "First Name" ? _firstNameController : fieldInfo[index] == "Current Password" ? _currentPasswordController : fieldInfo[index] == "New Password" ? _newPasswordController1 : fieldInfo[index] == "New Password Again" ? _newPasswordController2 : _lastNameController,
+                                hintText: fieldInfo[index] == "Change Email" ? _profileController.email.value : fieldInfo[index] == "Change Number" ? _profileController.phoneNumber.value : fieldInfo[index] == "First Name" ? _profileController.userFirstName.value : fieldInfo[0]=="Current Password" ? "" : _profileController.userLastName.value,
+                                borderRadius: BorderRadius.circular(5),
+                                validator: (value){
+                                  if(value.length==0){
+                                    return "This Field cannot be empty";
+                                  }
+                                  if(fieldInfo[index]=="New Password Again" && _newPasswordController1.text != _newPasswordController2.text){
+                                    return "Password didnot match";
+                                  }
+                                },
+                              ),
+                              SizedBox(height: 10,),
+                              fieldInfo[0]=="Change Email" ? Text("We will send verification to your New Email",style: CustomTextStyle.ultraSmallTextStyle(color: Colors.grey),):Container()
+
+                            ],
+                          );
+                        }
+                    )
                 ),
-              ),
+
+                FullWidthButton(
+                  color: AppColors.primaryDarkOrange,
+                  title: "Save",
+                  borderRadius: BorderRadius.circular(8),
+                  onTap: (){
+                    if(_key6.currentState.validate()){
+                      fieldInfo[0] == "Change Email" ? _profileController.email.value = _emailController.text :  fieldInfo[0] == "Change Number" ? _profileController.phoneNumber.value = _phoneController.text : print("");
+                      if(fieldInfo[0]=="First Name"){
+                        _profileController.userFirstName.value = _firstNameController.text;
+                        _profileController.userLastName.value = _lastNameController.text;
+                      }
+                      Navigator.pop(context);
+                    }
+                  },
+                )
+
+              ],
             ),
           ),
         ),

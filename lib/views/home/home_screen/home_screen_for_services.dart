@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:store_app/configs/constants/app_constants.dart';
 import 'package:store_app/configs/styles/app_colors.dart';
 import 'package:store_app/configs/styles/custom_text_style.dart';
-import 'package:store_app/views/home/home_screen/current_order.dart';
 import 'package:store_app/widgets/custom_drawer.dart';
 import 'package:store_app/widgets/custom_inkwell.dart';
 
@@ -147,7 +146,9 @@ class CustomRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomInkWell(
-      onTap: (){Get.to(CurrentBookingView(title: title));},
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context){return CurrentBookingView(title: title);}));
+        },
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),

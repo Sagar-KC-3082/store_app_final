@@ -59,10 +59,10 @@ class _PaymentWidgetState extends State<PaymentWidget> {
         });
         await Future.delayed(Duration(milliseconds: 200),(){
           if(widget.title=="Bank Transfer"){
-            Get.to(AddBankInfoView());
+            Navigator.push(context, MaterialPageRoute(builder: (context){return AddBankInfoView();}));
           }
           else{
-            Get.to(CreditCardInfoScreen());
+            Navigator.push(context, MaterialPageRoute(builder: (context){return CreditCardInfoScreen();}));
           }
           setState(() {
             _isTapped = !_isTapped;

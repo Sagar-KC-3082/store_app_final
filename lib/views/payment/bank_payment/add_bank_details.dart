@@ -36,7 +36,9 @@ class AddBankInfoView extends StatelessWidget {
                   FullWidthButton(
                     color: AppColors.primaryDarkOrange,
                     title: "Continue",
-                    onTap: (){Get.to(PaymentSuccessScreen());},
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){return PaymentSuccessScreen();}));
+                      },
                   )
 
                 ],

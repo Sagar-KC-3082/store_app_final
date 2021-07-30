@@ -29,18 +29,13 @@ class ServicesSubCategoryScreen extends StatelessWidget {
                 child: ListView(
                   shrinkWrap: true,
                   children: [
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
-                    CustomRow(image: "",title: "Service Name",),
+                    CustomRow(image: "assets/images/moving.jpg",title: "Service Name",),
+                    CustomRow(image: "assets/images/driving1.jpg",title: "Service Name",),
+                    CustomRow(image: "assets/images/moving.jpg",title: "Service Name",),
+                    CustomRow(image: "assets/images/driving1.jpg",title: "Service Name",),
+                    CustomRow(image: "assets/images/moving.jpg",title: "Service Name",),
+                    CustomRow(image: "assets/images/driving1.jpg",title: "Service Name",),
+                    CustomRow(image: "assets/images/moving.jpg",title: "Service Name",),
 
                   ],
                 ),
@@ -50,8 +45,8 @@ class ServicesSubCategoryScreen extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 title: "Continue",
                 onTap: (){
-                  Get.to(AddCertificateScreen());
-                },
+                  Navigator.push(context, MaterialPageRoute(builder: (context){return AddCertificateScreen();}));
+                  },
               )
 
             ],

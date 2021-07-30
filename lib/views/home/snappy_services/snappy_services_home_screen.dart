@@ -60,8 +60,8 @@ class SnappyServicesHomeScreen extends StatelessWidget {
                   color: AppColors.primaryDarkOrange,
                   title: "Continue",
                   onTap: (){
-                    Get.to(ServicesSubCategoryScreen());
-                  },
+                    Navigator.push(context, MaterialPageRoute(builder: (context){return ServicesSubCategoryScreen();}));
+                    },
                 )
 
               ],

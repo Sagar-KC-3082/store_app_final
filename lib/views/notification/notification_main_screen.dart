@@ -24,7 +24,7 @@ class NotificationScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: AppConstants.screenHorizontalPadding,vertical: AppConstants.screenVerticalPadding),
           child: Column(
             children: [
-              CustomAppBarRowWithCustomIconWithNoSpacing(title: "Notification",),
+              CustomAppBarRowWithCustomIconWithNoSpacing(title: "Notification",hideBackButton: true,),
               SizedBox(height: 30,),
 
               Expanded(

@@ -39,8 +39,8 @@ class UserTypeSelectionView extends StatelessWidget {
                       flex: 2,
                       child: CustomInkWell(
                         onTap: (){
-                          Get.to(SnappyFoodHomeScreen());
-                        },
+                          Navigator.push(context, MaterialPageRoute(builder: (context){return SnappyFoodHomeScreen();}));
+                          },
                         child: Column(
                           children: [
                             Expanded(
@@ -59,8 +59,8 @@ class UserTypeSelectionView extends StatelessWidget {
                       flex: 2,
                       child: CustomInkWell(
                         onTap: (){
-                          Get.to(SnappyStoreHomeScreen());
-                        },
+                          Navigator.push(context, MaterialPageRoute(builder: (context){return SnappyStoreHomeScreen();}));
+                          },
                         child: Column(
                           children: [
                             Expanded(
@@ -80,8 +80,8 @@ class UserTypeSelectionView extends StatelessWidget {
                       child: CustomInkWell(
                         onTap: (){
                           _homeController.userType.value ="Services";
-                          Get.to(SnappyServicesHomeScreen());
-                        },
+                          Navigator.push(context, MaterialPageRoute(builder: (context){return SnappyServicesHomeScreen();}));
+                          },
                         child: Column(
                           children: [
                             Expanded(

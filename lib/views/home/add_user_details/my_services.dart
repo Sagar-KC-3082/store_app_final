@@ -44,7 +44,7 @@ class MyServicesView extends StatelessWidget {
                 color: AppColors.primaryDarkBlue,
                 title: "Add New Item",
                 onTap: (){
-                  Get.back();
+                  Navigator.pop(context);
                 },
               ),
 
@@ -52,8 +52,8 @@ class MyServicesView extends StatelessWidget {
                 color: AppColors.primaryDarkOrange,
                 title: "Continue",
                 onTap: (){
-                  Get.to(PaymentMethod());
-                },
+                  Navigator.push(context, MaterialPageRoute(builder: (context){return PaymentMethod();}));
+                  },
               )
             ],
           ),
